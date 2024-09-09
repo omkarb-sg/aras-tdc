@@ -1,0 +1,14 @@
+﻿<AML>
+ <Item type="Action" id="04276B85D3004C70AE85A9517E0CB4BC" action="add">
+  <item_query>___is_new___</item_query>
+  <location>server</location>
+  <method keyed_name="rs_generator_execute" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>rs_generator_execute</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>item</type>
+  <name>rs_generator_execute</name>
+ </Item>
+</AML>

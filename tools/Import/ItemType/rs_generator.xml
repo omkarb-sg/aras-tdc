@@ -1,0 +1,77 @@
+﻿<AML>
+ <Item type="ItemType" id="4DE29AF3EA394F67BD8C849D93D517C6" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>1</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>RS_GENERATOR</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Value Generator</label>
+  <label_plural xml:lang="en">Value Generators</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>2</show_parameters_tab>
+  <structure_view>tabs max</structure_view>
+  <unlock_on_logout>1</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>rs_generator</name>
+  <Relationships>
+   <Item type="Property" id="2AA3F6634E5D4B4EAD40F373B9FECF36" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Method" type="ItemType" name="Method">87879A09B8044DE380D59DF22DE1867F</data_source>
+    <data_type>item</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>1</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Generator Method</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="rs_generator" type="ItemType" name="rs_generator">4DE29AF3EA394F67BD8C849D93D517C6</source_id>
+    <track_history>0</track_history>
+    <name>rs_generator_method</name>
+   </Item>
+   <Item type="View" id="92117BFEAF55499E8B17B9C8773C3934" action="add">
+    <client>js</client>
+    <related_id keyed_name="rs_generator" type="Form">1B796795C0F64FF3AB95BCA8EDB4B05F</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_generator" type="ItemType" name="rs_generator">4DE29AF3EA394F67BD8C849D93D517C6</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="C4DBD0DC60CD453CAB030966D14E5325" action="add">
+    <related_id keyed_name="rs_generator_execute" type="Action">04276B85D3004C70AE85A9517E0CB4BC</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_generator" type="ItemType" name="rs_generator">4DE29AF3EA394F67BD8C849D93D517C6</source_id>
+   </Item>
+   <Item type="Can Add" id="D85A4F02E68749EBA0DBEB3BF3EEB2A7" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_generator" type="ItemType" name="rs_generator">4DE29AF3EA394F67BD8C849D93D517C6</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="F5FCEBD479D04C1A93F52E49682CB7B8" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="World Can Get" type="Permission">93AB06D37FC84328A314324DC45DB574</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_generator" type="ItemType" name="rs_generator">4DE29AF3EA394F67BD8C849D93D517C6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

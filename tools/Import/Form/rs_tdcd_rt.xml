@@ -1,0 +1,69 @@
+﻿<AML>
+ <Item type="Form" id="5BFD81DD754A4483ABE8AC054444A242" action="add">
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>rs_tdcd_rt</name>
+  <Relationships>
+   <Item type="Body" id="0FB9BCCF560D4D09B8EA0D1025E965FD" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="Form">5BFD81DD754A4483ABE8AC054444A242</source_id>
+    <Relationships>
+     <Item type="Field" id="4A4AFB32DBC64183A6C708AB4B66F0CF" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#333333</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Owner</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="0FB9BCCF560D4D09B8EA0D1025E965FD" type="Body">0FB9BCCF560D4D09B8EA0D1025E965FD</source_id>
+      <tab_index>768</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>10</x>
+      <y>10</y>
+      <name>owned_by_id</name>
+     </Item>
+     <Item type="Field" id="2D79184ED17341029A147F172C820504" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#333333</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Tdcd</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="rs_tdcd" type="Property">C16E043F0EC84B0DBCA7B34651F5B2D2</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="0FB9BCCF560D4D09B8EA0D1025E965FD" type="Body">0FB9BCCF560D4D09B8EA0D1025E965FD</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>10</x>
+      <y>50</y>
+      <name>rs_tdcd</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="Field" id="4A4AFB32DBC64183A6C708AB4B66F0CF" action="edit">
+  <!-- Please note: this AML depends on the "rs_tdcd_rt" ItemType. Please make sure it exists before running this. -->
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>owned_by_id</name>
+    <source_id type="ItemType" keyed_name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+</AML>

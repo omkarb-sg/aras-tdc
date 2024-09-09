@@ -1,0 +1,88 @@
+﻿<AML>
+ <Item type="Method" id="728BB8F111CD4FABB8F62EDF63A0E5E5" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+
+Item itemtype = inn.getItemById("ItemType", this.getProperty("rs_itemtype"));
+Item generatedItem = inn.newItem(itemtype.getProperty("name"), "add");
+
+// Extra
+if (!String.IsNullOrEmpty(this.getAttribute("extra"))) {
+	string[] extras = this.getAttribute("extra").Split(",");
+	generatedItem.setProperty(extras[0], extras[1]);
+}
+
+// Property
+Item relatedTDEProperties = inn.newItem("rs_rel_tde_property", "get");
+relatedTDEProperties.setProperty("source_id", this.getAttribute("id"));
+relatedTDEProperties = relatedTDEProperties.apply();
+
+for (int i = 0; i < relatedTDEProperties.getItemCount(); i++) {
+	Item property = inn.getItemById("Property", relatedTDEProperties.getItemByIndex(i).getProperty("rs_property"));
+	string propertyName = property.getProperty("name");
+
+	Item generator = inn.getItemById("rs_generator", relatedTDEProperties.getItemByIndex(i).getProperty("rs_generator"));
+	generator.setAttribute("action", "rs_generator_execute");
+	generator.setProperty("rs_tdcd", this.getProperty("rs_tdcd"));
+	generator = generator.apply();
+	
+	if (generator.isError()) {
+	    return generator;
+	}
+
+	string generatedValue = generator.getProperty("value");
+	generatedItem.setProperty(propertyName, generatedValue);
+}
+
+// Property Item
+Item relatedTDEPropertyItems = inn.newItem("rs_rel_tde_propertyitem", "get");
+relatedTDEPropertyItems.setProperty("source_id", this.getAttribute("id"));
+relatedTDEPropertyItems = relatedTDEPropertyItems.apply();
+for (int i = 0; i < relatedTDEPropertyItems.getItemCount(); i++) {
+	Item propertyItemTDE = relatedTDEPropertyItems.getItemByIndex(i).getRelatedItem();
+	Item property = inn.getItemById("Property", relatedTDEPropertyItems.getItemByIndex(i).getProperty("rs_property"));
+
+	string propertyName = property.getProperty("name");
+	propertyItemTDE.setAttribute("action", "rs_tde_execute");
+	propertyItemTDE.setProperty("rs_tdcd", this.getProperty("rs_tdcd"));
+	Item propertyItemTDEResult = propertyItemTDE.apply();
+	if (propertyItemTDEResult.isError()) {
+		return propertyItemTDEResult;
+	}
+	generatedItem.setPropertyItem(propertyName, propertyItemTDEResult);
+}
+
+Item generatedItemResult = generatedItem.apply();
+if (generatedItemResult.isError()) {
+
+}
+
+// Reverse Property Item
+Item relatedTDEPropertyRevItems = inn.newItem("rs_rel_tde_propertyitem_rev", "get");
+relatedTDEPropertyRevItems.setProperty("source_id", this.getAttribute("id"));
+relatedTDEPropertyRevItems = relatedTDEPropertyRevItems.apply();
+for (int i = 0; i < relatedTDEPropertyRevItems.getItemCount(); i++) {
+	Item propertyItemRevTDE = relatedTDEPropertyRevItems.getItemByIndex(i).getRelatedItem();
+	Item property = inn.getItemById("Property", relatedTDEPropertyRevItems.getItemByIndex(i).getProperty("rs_property"));
+	int cardinality = int.Parse(relatedTDEPropertyRevItems.getItemByIndex(i).getProperty("rs_cardinality"));
+
+	string propertyName = property.getProperty("name");
+	propertyItemRevTDE.setAttribute("action", "rs_tde_execute");
+	propertyItemRevTDE.setProperty("rs_tdcd", this.getProperty("rs_tdcd"));
+	propertyItemRevTDE.setAttribute("extra", propertyName + "," + generatedItemResult.getAttribute("id"));
+
+	for (int j = 0; j < cardinality; j++) {
+		Item propertyItemRevTDEResult = propertyItemRevTDE.apply();
+		if (propertyItemRevTDEResult.isError()) {
+			return propertyItemRevTDEResult;
+		}
+	}
+}
+
+return generatedItemResult;
+
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>rs_tde_execute</name>
+ </Item>
+</AML>

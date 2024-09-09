@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Form" id="3B3D252BFD68411B9BD3CE0990E57CFF" action="add">
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>rs_rel_tde_property</name>
+  <Relationships>
+   <Item type="Body" id="8A6CFDE6E7444D228B6B74A7A76C1D82" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_rel_tde_property" type="Form">3B3D252BFD68411B9BD3CE0990E57CFF</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

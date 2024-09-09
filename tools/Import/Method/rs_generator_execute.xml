@@ -1,0 +1,71 @@
+﻿<AML>
+ <Item type="Method" id="1C84FAAA03DF4E249C28BAF953DCB9C2" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+Item result = inn.newItem();
+
+// If has method, use method
+if (!String.IsNullOrEmpty(this.getProperty("rs_generator_method"))) {
+    string generatorMethodName = inn.getItemById("Method", this.getProperty("rs_generator_method")).getProperty("name");
+    return inn.applyMethod(generatorMethodName, "<rs_tdcd>" + this.getProperty("rs_tdcd") + "</rs_tdcd>");
+}
+
+// Use rs_rel_generator_value
+Item values = inn.newItem("rs_rel_generator_value", "get");
+values.setProperty("source_id", this.getAttribute("id"));
+values = values.apply();
+
+if (values.getItemCount() <= 0) {
+    return inn.newError("Generator " + this.getAttribute("id") + " has no method or values");
+}
+
+// Get user Alias Identity
+Item alias = inn.newItem("Alias", "get");
+alias.setProperty("source_id", inn.getUserID());
+alias.setAttribute("select", "related_id");
+alias = alias.apply();
+string identity = alias.getProperty("related_id");
+if (String.IsNullOrEmpty(this.getProperty("rs_tdcd"))) {
+    return inn.newError("rs_tdcd isn't passed to method");
+}
+Item rt = inn.newItem("rs_tdcd_rt", "get");
+rt.setProperty("rs_tdcd", this.getProperty("rs_tdcd"));
+rt.setProperty("owned_by_id", identity);
+rt = rt.apply();
+if (rt.isError()) {
+    return rt;
+}
+
+int totalChance = 0;
+for (int i = 0; i < values.getItemCount(); i++) {
+    totalChance += int.Parse(values.getItemByIndex(i).getProperty("rs_chance", "0"));
+}
+Random random = new Random(int.Parse(rt.getProperty("rs_current_seed")));
+int randomValue = random.Next(totalChance);
+int cumulativeChance = 0;
+for (int i = 0; i < values.getItemCount(); i++) {
+    cumulativeChance += int.Parse(values.getItemByIndex(i).getProperty("rs_chance", "0"));
+    if (randomValue >= cumulativeChance) {
+        continue;
+    }
+    // If has generator, use generator
+    if (!String.IsNullOrEmpty(values.getItemByIndex(i).getProperty("rs_generator"))) {
+        Item generator = inn.getItemById("rs_generator", values.getItemByIndex(i).getProperty("rs_generator"));
+        generator.setAttribute("action", "rs_generator_execute");
+        return generator.apply();
+    }
+    // Use hardcoded value
+    result.setProperty("value", values.getItemByIndex(i).getProperty("rs_hardcoded"));
+    return result;
+}
+
+rt.setAttribute("action", "edit");
+rt.setProperty("rs_current_seed", random.Next().ToString());
+rt = rt.apply();
+
+return inn.newError("Unreachable code, rs_generator_execute");
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>rs_generator_execute</name>
+ </Item>
+</AML>

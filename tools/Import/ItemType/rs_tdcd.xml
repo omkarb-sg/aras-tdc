@@ -1,0 +1,99 @@
+﻿<AML>
+ <Item type="ItemType" id="B7A1BA6835A04C08B1B7942FF657B543" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>1</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>RS_TDCD</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Test Data Creation Definition</label>
+  <label_plural xml:lang="en">Test Data Creation Definitions</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>2</show_parameters_tab>
+  <structure_view>tabs max</structure_view>
+  <unlock_on_logout>1</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>rs_tdcd</name>
+  <Relationships>
+   <Item type="Property" id="B13912F55149462CA62AC58846E7C8DC" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Seed</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</source_id>
+    <track_history>0</track_history>
+    <name>rs_seed</name>
+   </Item>
+   <Item type="View" id="5146EFF49E92407BAB52187BA29CB84B" action="add">
+    <client>js</client>
+    <related_id keyed_name="rs_tdcd" type="Form">4DA59DDE276348F1A705A68842E542C8</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Item Action" id="63BE55396EAA48669A771F893FEB6B2C" action="add">
+    <related_id keyed_name="rs_tdcd_execute" type="Action">89C2C5452F4B4BD9A1E3625DCCDF2A81</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</source_id>
+   </Item>
+   <Item type="Can Add" id="C9716D8906554CEAB7ACA2B703621470" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="C0F1F530421F4452AEF3A1390858D45D" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="World Can Get" type="Permission">93AB06D37FC84328A314324DC45DB574</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="B7A1BA6835A04C08B1B7942FF657B543" action="edit">
+  <Relationships>
+   <Item type="Property" id="8927428E617D405E93255E65AC776341" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>1</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Name</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</source_id>
+    <stored_length>200</stored_length>
+    <track_history>0</track_history>
+    <name>rs_name</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,126 @@
+﻿<AML>
+ <Item type="ItemType" id="FF8F21ED470148B68FE3862BBE9A09C7" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>1</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>RS_TDCD_RT</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label xml:lang="en">Tdcd Runtime</label>
+  <label_plural xml:lang="en">Tdcd Runtimes</label_plural>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs max</structure_view>
+  <unlock_on_logout>1</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>rs_tdcd_rt</name>
+  <Relationships>
+   <Item type="Property" id="68460B1E30A149F0A4F6C20CB8B24367" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <default_value xml:lang="en" />
+    <help_text>A method is supposed to use this seed to generate methods, and update this seed at the end with (deterministic) random value.
+
+Example:
+seed &lt;- seed_from_rt
+r = new Random(seed)
+r.next()
+r.next()
+r.next()
+
+seed_from_rt &lt;- r.next()
+</help_text>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Current Seed</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="ItemType" name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+    <track_history>0</track_history>
+    <name>rs_current_seed</name>
+   </Item>
+   <Item type="View" id="4B78F9C802DD43FCAADF189AAC5296F2" action="add">
+    <client>js</client>
+    <related_id keyed_name="rs_tdcd_rt" type="Form">5BFD81DD754A4483ABE8AC054444A242</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="ItemType" name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Can Add" id="9211317AC335411391726FC05036069D" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="ItemType" name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="B0045ABDB5B648068211EC8E01336EB2" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="World Can Get" type="Permission">93AB06D37FC84328A314324DC45DB574</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="ItemType" name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="FF8F21ED470148B68FE3862BBE9A09C7" action="edit">
+  <Relationships>
+   <Item type="Property" id="C16E043F0EC84B0DBCA7B34651F5B2D2" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="rs_tdcd" type="ItemType" name="rs_tdcd">B7A1BA6835A04C08B1B7942FF657B543</data_source>
+    <data_type>item</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Tdcd</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="ItemType" name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+    <track_history>0</track_history>
+    <name>rs_tdcd</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='FF8F21ED470148B68FE3862BBE9A09C7' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_federated>0</is_federated>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Owner</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="rs_tdcd_rt" type="ItemType" name="rs_tdcd_rt">FF8F21ED470148B68FE3862BBE9A09C7</source_id>
+    <track_history>0</track_history>
+    <name>owned_by_id</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

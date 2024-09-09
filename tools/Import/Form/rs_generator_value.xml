@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Form" id="362AE15C16CC42BF9D0656835EE29D2E" action="add">
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>rs_generator_value</name>
+  <Relationships>
+   <Item type="Body" id="1C37C7FE63B74EFB980DF18420A12E2A" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_generator_value" type="Form">362AE15C16CC42BF9D0656835EE29D2E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

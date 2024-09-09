@@ -1,0 +1,64 @@
+﻿<AML>
+ <Item type="Form" id="4DA59DDE276348F1A705A68842E542C8" action="add">
+  <height>150</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>700</width>
+  <name>rs_tdcd</name>
+  <Relationships>
+   <Item type="Body" id="8790D77ACF2743C8B6C3894144250C3C" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="rs_tdcd" type="Form">4DA59DDE276348F1A705A68842E542C8</source_id>
+    <Relationships>
+     <Item type="Field" id="3647501D64844B9AA02BED745AD8A8E9" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#333333</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="rs_name" type="Property">8927428E617D405E93255E65AC776341</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="8790D77ACF2743C8B6C3894144250C3C" type="Body">8790D77ACF2743C8B6C3894144250C3C</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>10</x>
+      <y>10</y>
+      <name>rs_name</name>
+     </Item>
+     <Item type="Field" id="8DFDDB2A72AC4AFE80C1B310C2CE45DB" action="add">
+      <border_width>0</border_width>
+      <display_length>44</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#333333</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Seed</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="rs_seed" type="Property">B13912F55149462CA62AC58846E7C8DC</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="8790D77ACF2743C8B6C3894144250C3C" type="Body">8790D77ACF2743C8B6C3894144250C3C</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>10</x>
+      <y>85</y>
+      <name>rs_seed</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="89C2C5452F4B4BD9A1E3625DCCDF2A81" action="add">
+  <item_query>___is_new___</item_query>
+  <label xml:lang="en">Execute</label>
+  <location>server</location>
+  <method keyed_name="rs_tdcd_execute" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>rs_tdcd_execute</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>item</type>
+  <name>rs_tdcd_execute</name>
+ </Item>
+</AML>
